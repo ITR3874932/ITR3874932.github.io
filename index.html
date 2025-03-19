@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title data-text="title" key-translate="_TITLE_TAB"></title>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+
+	<style type="text/css">
+    /* -- Resets -- */
+    @charset "UTF-8";
+    html {
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        line-height: 1;
+        margin: 0; padding: 0;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    ol,ul,li {
+        font-size: 100%;
+        font: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:focus {
+        outline: thin dotted;
+    }
+
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+
+    b, strong {
+        font-weight: bold;
+    }
+
+    dfn, em {
+        font-style: italic;
+    }
+
+    mark {
+        background: #ff0;
+        color: #000;
+    }
+
+    fieldset,
+    form,
+    label {
+        border: 0 none;
+        font-family: inherit;
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    button,
+    input {
+        line-height: normal;
+    }
+
+    button,
+    select {
+        text-transform: none;
+    }
+
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    /*
+    ---------------- Theme --------------------
+    */
+    html {
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .textBlock {
+        background-color: #fff;
+        border-radius: 20px;
+        margin: 40px auto 0; /* Comprend aussi le décalage des bubbles vers le haut */
+        padding:20px 60px; /* Change la position de la bubble également */
+        position: relative; /* Permet d'avoir une référence pour tous les enfants avec une position: absolute (si non fixée dans un conteneur parent, la page entière devient la référence) */
+        
+        .bubble {
+            /* N'est effectif que pour les class="bubble" à l'intérieur d'un class="textBlock" */
+            background-color: #ff8200;
+            color:#fff;  
+            border-radius: 25px; 
+            position: absolute; /*La position doit rester absolute (et non relative) pour ne pas garder d'emplacement blanc suite au décalage. */
+            /* Les coordonnées sont par rapport au dernier parent avec une position : absolute ou relative. Dans notre cas, c'est le textBlock qui a une position : relative. 
+            Attention à la prévisualisation VSCode qui n'y est pas forcément fidèle -> Bien tester sur les navigateurs pour le placement final */
+            top: -20px; 
+            left: -20px; 
+            padding: 4px 40px;
+            font-size: 16pt;
+        }
+    }
+
+    .textBlock:hover {
+        /* effectue un léger zoom sur les éléments textBlock, lorsqu'ils sont survolés*/
+        -webkit-transform: scale(1.05);
+        -webkit-transition: transform .75s ease-in-out; /* Apporte quelques précisions sur la transformation précédente, ici la vitesse */
+        transform: scale(1.05);
+        transition: transform .75s ease-in-out; /* Apporte quelques précisions sur la transformation précédente, ici la vitesse */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin:0;
+        padding-top: 0;
+        padding-bottom: 12px;
+    }
+
+    h3 {
+        font-size: 1.1em;
+        margin:0;
+        padding-bottom:8px;
+    }
+
+    #email-container {
+        position: relative;
+    }
+
+    button[type="submit"] {
+        background-color: #ff8200;
+    }
+
+    button[type="submit"]:hover {
+            background-color: #cf5200;
+    }
+
+    /* Repositionner les images lorsque l'arabe ou l'hébreu est sélectionné. Bien penser à éditer cette partie lors de changements visuels faits dans le TM */
+    [dir="rtl"] {
+
+        td#logo-left {
+            text-align: left !important;
+        }
+        td#logo-right {
+            text-align: right !important;
+        }
+        img#waves {
+            -webkit-transform: scaleX(-1); /* Retourne l'image horizontalement */
+            transform: scaleX(-1);
+            right: auto !important;
+            left:-64px !important;
+        }
+        img#black-loop-1 {
+            -webkit-transform: scaleX(-1); /* Retourne l'image horizontalement */
+            transform: scaleX(-1);
+            right: 300px !important;
+            left: auto !important;
+        }
+        img#black-loop-2 {
+            -webkit-transform: scaleX(-1); /* Retourne l'image horizontalement */
+            transform: scaleX(-1);
+            right: 300px !important;
+            left: auto !important;
+        }
+        img#red-loop {
+            -webkit-transform: scaleX(-1); /* Retourne l'image horizontalement */
+            transform: scaleX(-1);
+            right: auto !important;
+            left:-54px !important;
+        }
+        img#black-loop-end {
+            -webkit-transform: scaleX(-1); /* Retourne l'image horizontalement */
+            transform: scaleX(-1);
+            right: -64px !important;
+            left:auto !important;
+        }
+        .textBlock {
+            .bubble {
+                left: auto !important;
+                right : -20px !important;
+            }
+        }
+    }
+
+    /* Cette partie est pour le fun d'animer le logo de fin #106 */
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-transform: scale(1, 1);
+        }
+        50% {
+            -webkit-transform: scale(1.3, 1.3);
+        }
+        100% {
+            -webkit-transform: scale(1, 1);
+        };
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.3, 1.3);
+        }
+        100% {
+            transform: scale(1, 1);
+        };
+    }
+
+    #logo106:hover {
+        -webkit-animation: pulse 1s linear infinite;
+        animation: pulse 1s linear infinite;
+    }
+
+    .tooltip {
+        /* La création des tooltips se fait via le Javascript, certains héritages ne sont pas supportés.
+        => Bien penser à faire les modifications & reprécisions de polices, de couleurs etc. ici aussi pour les tooltips */
+        position: absolute;
+        z-index: 2; /* z-index: 1 suffit s'il n'y a pas d'effet dimScreen, sinon z-index:2 permet d'intercaler le dimScreen entre le fond et le tooltip. */
+        max-width: 240px;
+        padding: 8px 12px;
+        background-color: #fff;
+        border : 4px solid #ff0000;
+        border-radius: 20px;
+        text-align: left;
+        color: #333;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12pt;
+
+    }
+
+    .tip {
+        border: 4px #ff0000 solid;
+        padding: 4px;
+        border-radius: 24px;
+        cursor: help; /* Change le visuel du curseur lors du survol. cursor:help ajoute un '?' à la souris */
+        position: relative;
+        z-index: 2; /* z-index:2 permet de rester accessible malgré l'effet dimScreen. Une image de class tip sera cependant toujours visible alors le dimScreen du à cet index. */
+    }
+
+/* Permet d'ajouter un petit '+' à la fin des tips pour indiquer qu'il est possible de survoler le tip
+    .tip::after {
+        background-image:url('https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/14435/image-5f2dbc.png');
+        background-size: 15px 15px;
+        display: inline-block;
+        width: 15px; 
+        height: 15px;
+        content:"";
+    }
+*/
+
+    #dimScreen
+    {
+        /* Surcouche semi-transparente sur l'ensemble de l'écran pour mettre en valeur des éléments de la page. Le Javascript sera responsable de modifier son display en fonction des interactions utilisateur. Pour activer ou désactiver la fonction, il y a un booléen dimScreenOn à modifier dans le Javascript. */
+        position:fixed;
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
+        width: 100%;
+        height: 100%;
+        background:rgba(0,0,0,0.4); /* Le 4e paramètre est la transparence */
+        z-index: 1; /* Permet de griser les éléments avec z-index:0 (valeur par défaut), mais de laisser tranquille les éléments avec un z-index > 1. */
+        pointer-events: none; /* Permet d'éviter de bloquer le survol du textBlock et de laisser la souris passer "en dessous" */ 
+    }
+
+    #languageDropdown {
+        font-size: 11pt;
+        text-align: justify;
+        text-align-last: center;
+        border: 3px solid #ff8200;
+        border-radius: 8px;
+        padding:4px 12px;
+        appearance: none;
+
+        option {
+            display: none;
+        }
+    }
+    </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Emmanuel CHARRON</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">330300.000000000</mso:Order>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:SharedWithUsers msdt:dt="string"></mso:SharedWithUsers>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Emmanuel CHARRON</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:ContentTypeId msdt:dt="string">0x0101004434AFEF1B2D8A478AEC9C6B07833956</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body style="background-color: #fff;">
+    <div id="dimScreen" style="display: none;">&nbsp;</div>
+    <noscript>
+		<p class="no-js-message">Please enable JavaScript to have use of the translation of this webpage.</p>
+	</noscript>
+    <table class="container" width="900" style="width:900px; background-color: #d7cfc5; margin: 0 auto;">
+        <!-- La largeur est redéfinie en CSS pour que tous les navigateurs le prennent en compte.
+        Pour les emails, le width="XX" est suffisant. -->
+    <thead style="font-weight: 500; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;line-height: 1.2;">
+        <tr>
+            <td width="100%" style="text-align: right; padding: 12px">
+            <div class="header">
+                <div class="language-selector" style="font-family: inherit;">
+                    <label for="languageDropdown" key-translate="_CHOOSE_LANGUAGE">
+                        Choose your language:
+                    </label>
+                    <select id="languageDropdown" style="width: 150px">
+                        <option value="en" selected>English</option>
+                        <option value="ar">Arabic - العربية</option>
+                        <option value="bg">Bulgarian - български</option>
+                        <option value="my">Burmese - မြန်မာဘာသာ</option>
+                        <option value="zh">Chinese (Simplified) - 中文（简体）</option>
+                        <option value="zh-HK">Chinese (Traditional) - 中文（繁體）</option>
+                        <option value="hr">Croatian - Croation</option>
+                        <option value="cs">Czech - če&scaron;tina</option>
+                        <option value="da">Danish - dansk</option>
+                        <option value="nl">Dutch - Nederlands</option>
+                        <option value="fi">Finnish - suomi</option>
+                        <option value="fr">French - fran&ccedil;ais</option>
+                        <option value="de">German - Deutsch</option>
+                        <option value="el">Greek - &Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;ά</option>
+                        <option value="he">Hebrew - עברית</option>
+                        <option value="hi">Hindi - हिन्दी</option>
+                        <option value="hu">Hungarian - magyar</option>
+                        <option value="is">Icelandic - &iacute;slenska</option>
+                        <option value="id">Indonesian - Indonesia</option>
+                        <option value="it">Italian - italiano</option>
+                        <option value="ja">Japanese - 日本語</option>
+                        <option value="ko">Korean - 한국어</option>
+                        <option value="km">Khmer - ខ្មែរ</option>
+                        <option value="lt">Lithuanian</option>
+                        <option value="ms">Malay - Bahasa Melayu</option>
+                        <option value="no">Norwegian - norsk</option>
+                        <option value="pl">Polish - polski</option>
+                        <option value="pt-BR">Portuguese (Brazil) - portugu&ecirc;s (Brasil)</option>
+                        <option value="pt">Portuguese (Portugal) - portugu&ecirc;s</option>
+                        <option value="ro">Romanian - rom&acirc;nă</option>
+                        <option value="ru">Russian - русский</option>
+                        <option value="sr">Serbian - српски</option>
+                        <option value="sk">Slovak - slovenčina</option>
+                        <option value="es">Spanish - espa&ntilde;ol</option>
+                        <option value="sv">Swedish - svenska</option>
+                        <option value="th">Thai - ไทย</option>
+                        <option value="tr">Turkish - T&uuml;rk&ccedil;e</option>
+                        <option value="uk">Ukrainian</option>
+                        <option value="vi">Vietnamese - Tiếng Việt</option>
+                    </select>
+                </div>
+            </div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+        <table class="content" cellpadding="0" cellspacing="0" width="100%" style="width:100%; padding:60px; color:#383838; font-size: 12pt; text-align: justify; font-weight: 500; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;line-height: 1.2;">
+            <!-- Il faut mieux éviter de mettre des unités au line-height, le support de l'héritage du line-height est plutôt mauvais. -->
+        <tbody>
+        <tr>
+        <td>
+            <table class="header" cellpadding="0" cellspacing="0" width="100%" style="width:100%">
+                <tbody>
+                <tr>
+                    <td id="logo-left" width="50%" style="text-align: right;">
+                        <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/i-tracing-rvb-logo-horizontal-6cefaf.png" height="52">
+                    </td>
+                    <td class="vspacer" width="20%">
+                        <!-- Un padding  ferait très bien l'affaire aussi pour le TM. Pour les mails, l'utilisation de spacer est légèrement plus résilient selon les situations. -->
+                        &nbsp;
+                    </td>
+                    <td id="logo-right" width="30%" style="text-align: left;">
+                        <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/billy-v0-1ff977.jpg" height="80">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="spacer" height="20"></table>
+            <table class="intro" cellpadding="0" cellspacing="0" width="100%" style="width:100%">
+                <tbody>
+                    <tr class="title">
+                        <td style="text-align: left;">
+                            <h1 key-translate="_TITLE">FAITES ATTENTION AUX LIENS FRAUDULEUX !</h1>
+                        </td>
+                        <td class="wrapper" width="60%" style="position: relative;">
+                            <!-- La largeur de la td définit la place laissée à l'image (à quel point on pousse les contenus voisins).
+                            Pour déplacer l'image, modifier les valeurs top, bottom, right & left. Les px sont calculés par rapports aux bords du container parent (du dernier qui a une position: relative ou absolute).
+                            -->
+
+                            <!-- Si l'on veut que l'image colle le bord de la page, penser à modifier le right/left pour mettre l'opposé du padding/marges des tables parentes. Les positions négatives sont acceptées. -->
+                            <img id="waves" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/vagues--2--f1cc9a.png" height="180" style="position: absolute; bottom:-24px; right:-64px;" />
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="20"></tr>
+                    <tr>
+                        <td colspan="2" style="font-weight: 600;" key-translate="_SUBTITLE">
+                            Ceci est un exercice réalisé par %COMPANY%, ne vous inquiétez pas. Soyez vigilants car cela aurait pu être un véritable phishing. Voici des astuces pour vous protéger contre le phishing :
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+            <table class="textBlock" name="Step 1" cellpadding="4" cellspacing="0" width="100%" style="width:100%">
+                <tbody>
+                    <tr>
+                        <td colspan="3">
+                            <div class="bubble" key-translate="_STEP_1">STEP&nbsp;1</div>
+                            <!-- &nbsp; permet d'empêcher le navigateur de faire un retour chariot non sollicité. -->
+                            <h2 key-translate="_STEP_1_TITLE">Vérifiez ces éléments</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center;">
+                            <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/contract-b0e880.png" height="80">
+                        </td>
+                        <td colspan="2">
+                            <h3>&#9679;	<span key-translate="_STEP_1_SUBTITLE_1">L'adresse de l'expéditeur</span></h3>
+                            <span key-translate="_STEP_1_CONTENT_1">Vérifiez si le nom de l'expéditeur correspond bien à son adresse e-mail, et méfiez vous si vous ne le connaissez pas.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h3>&#9679;	<span key-translate="_STEP_1_SUBTITLE_2">Le ton de l'e-mail</span></h3>
+                            <span key-translate="_STEP_1_CONTENT_2">Une action urgente vous est demandée ? Prenez le temps de lire l'e-mail et de vous questionner sur sa légitimité.</span>
+                        </td>
+                        <td width="20%" style="text-align: center;">
+                            <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/email-f0add4.png" height="80">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center;">
+                            <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/id-9a2e8c.png" height="80">
+                        </td>
+                        <td colspan="2">
+                            <h3>&#9679;	<span key-translate="_STEP_1_SUBTITLE_3">La signature</span></h3>
+                            <span key-translate="_STEP_1_CONTENT_3">Vérifiez si la signature vous semble légitime, un logo, un numéro de téléphone, une adresse... Et vérifiez ces données.</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Les images affichées entre les 2 blocs de textes font, en réalité, partie du bloc #02-->
+            <table class="textBlock" name="Step 2" cellpadding="0" cellspacing="0" width="100%" style="width:100%; padding: 20px;">
+                <tbody>
+                    <tr class="spacer" height="36">&nbsp;</tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <!-- Les images de l'interligne sont inclues ici pour avoir un container de taille suffisante pour inclure des images suffisamment grandes. -->
+                            <img id="black-loop-1"src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/fleche-e9e364.png" height="120" style="position: absolute; top:-80px;left:300px" />
+                            <!-- Les images seront centrées par défaut, mais tout décalage doit être fait depuis le bord droit ou gauche. Attention à bien tester sur téléphone !-->
+                            <img id="red-loop" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/boucle--2--f80a26.png" height="160" style="position: absolute; top:-142px; right:-54px;" />
+                            <!-- Le text-align de la td doit être centered pour que l'image du milieu puisse être centrée. 
+                            Attention à bien redéfinir les text-align dans les textes suivants. -->
+                            <div class="bubble" key-translate="_STEP_2">STEP&nbsp;2</div>
+                            <h2 style="text-align: justify;" key-translate="_STEP_2_TITLE">Faites attention aux détails</h2>
+                            <p style="text-align: justify;" key-translate="_STEP_2_INTRO">
+                                Voici l'e-mail que vous avez reçu. Survolez les bulles pour voir les détails auxquels vous auriez dû prêter attention.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td>
+                        <!-- Email received -->
+                        <!-- Dans l'email copié, pour entourer une partie du code en rouge, effet au survol de souris etc., il faut la déclarer en tant que class="tip". Le contenu du tooltip est indiqué à la suite dans le data-tooltip="texte a afficher".
+                        EXEMPLE : <p>De : Loterie pour %COMPANY%<span class="tip" data-tooltip="Domaine d'expédition très suspect."> &lt;lottery@k-trafficxmj.co&gt;</span></p> -->
+                        <div style="background-color: #D7CFC5; max-width:900px; border: 2px #000 solid; margin:12px auto">
+                            <!-- Informations de l'e-mail -->
+                            <div style="background-color: #B5A99D; color:#000; padding: 12px;">
+                            <p><span style="font-weight: 700;" key-translate="_FROM">De : </span><span key-translate="_SENDER">Loterie pour %COMPANY%</span><span class="tip" data-tooltip="Domaine d'expédition très suspect." key-data-tooltip="_SENDER_TOOLTIP"> &lt;lottery@k-trafficxmj.co&gt;</span></p>
+                            
+                            <p><span style="font-weight: 700;" key-translate="_SUBJ">Objet : </span><span key-translate="_SUBJECT">Participez au Tirage au Sort et Gagnez des Places Exclusives pour les Jeux Olympiques de Paris 2024</span></p>
+                            </div>
+
+                        <!-- Attention aux liens et aux boutons, PSAT ne va pas les réécrire comme dans les emails. Dans la reproduction du mail de phishing, ne pas hésiter à écrire des href="Phishing Link" ou href="https://eifsjsfesvnvc.k-trafficxmj.com".-->
+                        
+                        <div id="email-container" style="margin:24px;">
+    <!----------------  DEBUT du contenu du mail --------------
+                Copier coller le code html ci-dessous
+    ---------------------------------------------------------->
+                            <table class="spacer" height="8">
+                            </table>
+                            <table align="center" class="container" style="margin: 0 auto 24px; background-color:#fff; text-align: center; color:#333; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);" width="600">
+                            <tbody>
+                                <tr>
+                                    <td style="font-size: 14px; line-height:20px;">
+                                    <h1>Jeux Olympiques Paris 2024</h1>
+                                    <img alt="" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/15164/image-20231103152357-1-062592.png" width="150" />
+                                    <p>Chers tous,</p>
+                    
+                                    <p style="text-align:justify">Nous sommes ravis de vous annoncer une opportunit&eacute; exceptionnelle qui vous permettra de plonger au c&oelig;ur de l&#39;action des jeux Olympiques de Paris 2024, l&#39;un des &eacute;v&egrave;nements sportifs les plus prestigieux au monde :</p>
+                    
+                                    <p class="tip" data-tooltip="Cela paraît particulièrement attractif, redoublons de prudence." style="font-size:16px; font-weight: 600;" >Nous vous offrons la chance exclusive de gagner des places pour assister &agrave; ces jeux inoubliables !</p>
+                    
+                                    <table class="intro" style="margin: 0 auto; border:solid 2px #ccc; color:#333;" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-size: 19px; font-weight: 600; text-align: center; padding: 16px 0 12px">Comment participer ? C'est simple !</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify; padding: 0 8px">Vous pouvez participer une fois &agrave; notre tirage au sort et avoir une chance de remporter des places pour les Jeux Olympiques de Paris 2024 tous frais pay&eacute;s (transport, h&ocirc;tel et billets).<br />
+                                                <span style="font-weight:600">L'enregistrement sera ouvert jusqu'au %DATE:7%.</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify; padding: 12px 8px"><span style="font-weight:600">&rarr; Vous n&#39;avez pas besoin de cr&eacute;er un compte ou de fournir quelconque information, </span><span class="tip" data-tooltip="Se connecter via des codes professionnels pour ce genre de loterie est anormal.">il vous suffit de vous connecter avec votre compte professionnel.</span> Nous vous contacterons par e-mail &agrave; l&#39;issu du tirage au sort pour vous communiquer le résultat.</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 4px 0 8px">
+                                                <table cellpadding="0" cellspacing="0" class="bouton PSAT" height="42" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                            <div style="text-align: center; white-space: nowrap;"><a href="https://eifsjsfesvnvc.k-trafficxmj.co/" style="padding:12px 20px; background-color:#d6c278; border-radius:10px; color:#000; font-family:sans-serif; font-size:1em;font-weight:bold; text-align:center; text-decoration:none;-webkit-text-size-adjust:none;">Participer !</a></div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0 4px; font-size:10px; font-style: italic; text-align: center;"><a href="https://eifsjsfesvnvc.k-trafficxmj.co/" class="tip" data-tooltip="Le lien lors du survol devrait pointer vers un lien différent que celui du bouton.">*Cliquer ici pour voir les conditions de participation et obtention des gains </a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="spacer" height="4">
+                                    </table>
+                    
+                                    <table class="description" style="margin: 8px auto; border:solid 2px #ccc; text-align:justify; color:#333;" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-size: 19px; font-weight: 600; text-align: center; padding: 16px 0 4px"><span class=tip data-tooltip="Les attaquants vont tout faire pour vous donner envie de cliquer sur les liens / boutons.">Partageons ce moment !</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 4px 8px">1. Vivez l&#39;&eacute;motion en direct: ressentez l&#39;adr&eacute;naline des comp&eacute;titions olympiques, encouragez vos athl&egrave;tes pr&eacute;f&eacute;r&eacute;s et assistez &agrave; des moments historiques en direct depuis les gradins !</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 4px 8px">2. Fiert&eacute; locale : en remportant ces places, vous pourrez repr&eacute;senter votre pays, et apporter le soutien passionn&eacute; de la communaut&eacute; envers les athl&egrave;tes qui se pr&eacute;parent &agrave; briller lors de ces jeux spectaculaires.</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 4px 8px">3. Exp&eacute;rience m&eacute;morable : les Jeux Olympiques sont bien plus qu&#39;un simple &eacute;v&egrave;nement sportif. C&#39;est une c&eacute;l&eacute;bration de l&#39;unit&eacute;, de la diversit&eacute; et de l&#39;excellence. Participer, c&#39;est s&#39;immerger dans cette atmosph&egrave;re exceptionnelle.</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 4px 8px;">Nous vous souhaitons bonne chance et esp&eacute;rons que vous aurez l&#39;opportunit&eacute; de vivre une exp&eacute;rience inoubliable aux Jeux Olympiques de Paris 2024 !</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px 8px 4px; text-align:justify; font-size:11px">Le tirage au sort est r&eacute;serv&eacute; aux employ&eacute;s d&#39;entreprises ayant une antenne &agrave; Paris d&#39;au moins 1000 employ&eacute;s. Vous ne pourrez donc pas transf&eacute;rer cette invitation &agrave; des contacts ne remplissant pas les conditions ou ayant d&eacute;j&agrave; particip&eacute; au pr&eacute;alable.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px 8px 20px; text-align:justify; font-size:11px">Si vous avez des questions ou des probl&egrave;mes pour participer, vous pouvez nous contacter en remplissant <a href="https://eifsjsfesvnvc.k-trafficxmj.co/">ce formulaire de contact</a>.
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td width="33%"><img alt="" height="28" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/i-tracing-rvb-logo-horizontal-38b85b.png" width="165" /></td>
+                                                <td width="34%">&nbsp;</td>
+                                                <td width="33%" style="text-align:right"><div class="tip" data-tooltip="Un logo officiel ne rend pas le mail légitime, en particulier lorsqu'il n'a pas de lien avec le sujet."><img style="display:inline-block" alt="" height="66" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/14435/image-20231212092723-2-7639e5.png"  width="112" /></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+    <!-----------------  FIN du contenu du mail ---------------
+                Copier coller le code html au-dessus
+    ---------------------------------------------------------->
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="textBlock" name="Step 3" cellpadding="0" cellspacing="0" width="100%" style="width:100%">
+                <tbody>
+                    <tr class="spacer" height="36">&nbsp;</tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <!-- Les images de l'interligne sont inclues ici pour avoir un container de taille suffisante pour inclure des images suffisamment grandes. -->
+                            <img id="black-loop-2" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/fleche-inverser-1c5055.png" height="120" style="position: absolute; top:-80px; left:300px" />
+                            <!-- Les images seront centrées par défaut, mais tout décalage doit être fait depuis le bord droit ou gauche. Attention à bien tester sur téléphone !-->
+
+                            <!-- Le text-align de la td doit être centered pour que l'image du milieu puisse être centrée. 
+                            Attention à bien redéfinir les text-align dans les textes suivants. -->
+                            <div class="bubble" key-translate="_STEP_3">STEP&nbsp;3</div>
+                            <h2 style="text-align: justify;" key-translate="_STEP_3_TITLE_1">Signaler un e-mail qui ne vous semble pas légitime</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center;">
+                            <img src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/image-c758d2.png" height="60" style="border: 2px #ff8200 solid;">
+                        </td>
+                        <td key-translate="_STEP_3_CONTENT_1">
+                            Signaler l'e-mail en cliquant sur le bouton 'Signaler un phishing'. Vous devriez voir le logo apparaître en haut à droite de l'adresse de l'expéditeur.
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td colspan="2">
+                            <h2 key-translate="_STEP_3_TITLE_2">Pourquoi signaler ?</h2>
+                            <ul style="padding: 8px 40px; line-height: 1.5em;">
+                                <!-- Il est possible de changer les pictos des bullet points ou leur position/comportement par rapport au texte via list-style, list-style-image, list-style-position ou list-style-type. -->
+                                <li key-translate="_STEP_3_LI_1">Avertir l'équipe sécurité qu'une potentielle attaque a lieu.</li>
+                                <li key-translate="_STEP_3_LI_2">Vérifiez la légitimité de votre e-mail. Si celui-ci n'est pas un phishing, vous pourrez y répondre.</li>
+                                <li key-translate="_STEP_3_LI_3">Protéger mon entreprise et mes collègues en avertissant au plus vite.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="footer" cellpadding="0" cellspacing="0" width="100%" style="width:100%; position:relative;">
+                <tbody>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <img id="black-loop-end" src="https://ts-eu-uploads.s3.eu-west-1.amazonaws.com/training/production/10613/boucle-noir-3b57e0.png
+                            " height="80" style="position: absolute; top:-48px; left:-64px;">
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td key-translate="_ACKNOwLEDGE_1">
+                            Nous avons tous la responsabilité de protéger les informations du groupe - ne soyez pas une cible facile ! Si vous avez des questions ou avez besoin de plus amples renseignements, veuillez communiquer avec l'équipe de sécurité informatique.
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td style="text-align: center;" key-translate="_ACKNOwLEDGE_2">
+                            En cliquant sur le bouton ci-dessous, vous confirmez avoir lu ce message.
+                        </td>
+                    </tr>
+                    <tr class="spacer" height="12"></tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <form action="/training/acceptance" id="training-form" method="POST">
+                                <button data-text="acknowledge_button" type="submit" key-translate="_ACK_BUTTON" style="border-radius: 10px; font-weight: 700; padding: 15px 20px; text-transform: uppercase; display: inline-block; color:#fff;">Confirmer</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </td> 
+    </tr>
+    </tbody>
+    </table>
+</body>
+
+<!-- IMPORT DE TRADUCTIONS -->
+<script>
+    /* 
+        ===================  COMMENT CA MARCHE ?  ===================
+    Comme pour la traduction de JSON, la traduction automatique fonctionne sur un principe de couple clef/valeur.
+    L'ensemble du texte à afficher doit être inclus dans la variable "translations" sous ce format :
+        {"langue1" : {"clef1" : "texte1", "clef2" : "texte2"}, "langue2" : {...}...}
+    Un menu déroulant va être affiché en haut du code ayant pour id="languageDropdown".
+    Les langues contenues dans ce menu sont celles qui seront disponibles en traduction.
+    Selon la langue détectée du navigateur, une langue sera présélectionnée, l'utilisateur pourra tout de même changer s'il le souhaite.
+    La valeur par défaut utilisée si non-trouvée est celle qui contient selected dans le menu déroulant. Attention à ce que la liste de languages la contienne.
+    IMPORTANT : Pour cela, il est important de renseigner ci-dessous la variable "languages" avec les langues disponibles en traduction, et ce en plus du dictionnaire "translations" !
+
+        ===================  COMMENT CIBLER LE TEXTE A TRADUIRE  ?  ===================
+    Un texte d'affichage par défaut reste à inclure au cas-où le Javascript ne puisse pas s'executer.
+    Techniquement, si vous étiez sûr.e à 100% que le Javascript est actif pour tous, vous pourriez avoir un TM vide de texte.
+    Sur chaque élément que vous souhaitez traduire, ajoutez le paramètre key-translate="clef1" dans votre élément.
+    Le texte sera ensuite modifié sur la base des traductions inclues dans la variable Javascript "translations".
+    Pour cibler non pas le contenu du texte, mais le tooltip, ajoutez le paramètre key-data-tooltip="clef2"
+
+        ===================  EXEMPLE  ===================
+            <select id="languageDropdown" style="width: 150px">
+                <option value="en" selected>English</option>
+                <option value="fr">Français</option>
+            </select>
+            ...
+            <h1 key-translate="_TITLE">WATCH OUT FOR FAKE LINKS! (For non-JS viewers)</h1>
+            ...
+            <span class="tip" data-tooltip="Highly suspicious domain name." key-data-tooltip="_SENDER_TOOLTIP" key-translate="_SENDER"> Unknown sender <unknown@domain.com> (For non-JS viewers)</span>
+            ...
+            <script>
+                var languages = ["en","fr"];
+                var translations = {
+                    "en" : {
+                        "_TITLE" : "WATCH OUT FOR FAKE LINKS!",
+                        "_SENDER" : "Unknown sender <unknown@domain.com>",
+                        "_SENDER_TOOLTIP" : "Highly suspicious domain name."
+
+                    },
+                    "fr" : {
+                        "_TITLE" : "FAITES ATTENTION AUX LIENS FRAUDULEUX !",
+                        "_SENDER" : "Expéditeur inconnu <unknown@domain.com>",
+                        "_SENDER_TOOLTIP" : "Domaine d'expédition très suspect."
+                    }
+                };
+                ...
+            < /script>
+
+        ===================  POINT D'ATTENTION  ===================
+    Les langues de navigateurs sont capricieuses, merci de vous référez à la liste des codes langues utilisés dans le menu déroulant en haut de l'HTML. Elles ne sont pas modifiables, c'est aux traductions d'adapter leurs clefs pays.
+    Le choix a été fait de ne pas différencier les langues régionales (fr = fr-FR = fr-CA...).
+    Les seules exceptions conservées sont le Brésilien 'pt-BR' et le Chinois Trad. 'zh-HK'.
+    Toutes les autres langues de navigateurs sont réduites à ce qui précède le trait d'union.
+    */
+
+    var languages = ["en","fr"];
+    
+    var translations = {
+        "en" : {
+            "_TITLE_TAB" : "Oops! You've been phished...",
+            "_CHOOSE_LANGUAGE" : "Choose your language:",
+            "_TITLE" : "WATCH OUT FOR FAKE LINKS!",
+            "_SUBTITLE" : "This is a phishing exercise made by %COMPANY%, do not worry. Be careful as this could have been a real phishing attack. Here are some tips to protect yourself against phishing:",
+            "_STEP_1" : "STEP\u00A01",
+            "_STEP_1_TITLE" : "Check those elements",
+            "_STEP_1_SUBTITLE_1" : "Sender's email address",
+            "_STEP_1_CONTENT_1" : "Check that the sender's name matches his email, and beware if you don't know him.",
+            "_STEP_1_SUBTITLE_2" : "The email's tone",
+            "_STEP_1_CONTENT_2" : "Have you been asked to take urgent action? Take the time to read the entire e-mail and question its legitimacy.",
+            "_STEP_1_SUBTITLE_3" : "The signature",
+            "_STEP_1_CONTENT_3" : "Check if the signature seems legitimate, a logo, a phone number, an address... And check those details.",
+
+            "_STEP_2" : "STEP\u00A02",
+            "_STEP_2_TITLE" : "Pay attention to detail",
+            "_STEP_2_INTRO" : "Here's the e-mail you received. Hover over the bubbles to see the details you should have paid attention to.",
+
+            "_FROM" : "From: ",
+            "_SENDER" : "Lottery for %COMPANY%",
+            "_SENDER_TOOLTIP" : "Highly suspicious sending domain",
+            "_SUBJ" : "SUBJECT: ",
+            "_SUBJECT" : "Participate in the Lottery and Win Exclusive Tickets to the Paris 2024 Olympic Games",
+
+            "_STEP_3" : "STEP\u00A03",
+            "_STEP_3_TITLE_1" : "Report an e-mail that doesn't seem legitimate",
+            "_STEP_3_CONTENT_1" : "Report the e-mail by clicking on the 'Report phishing' button. You should see the logo appear at the top right of the sender's address.",
+            "_STEP_3_TITLE_2" : "Why report?",
+            "_STEP_3_LI_1" : "Warn the security team of a potential attack.",
+            "_STEP_3_LI_2" : "Check the legitimacy of your e-mail. If it's not phishing, you can reply.",
+            "_STEP_3_LI_3" : "Protect my company and my colleagues by alerting them as soon as possible.",
+
+            "_ACKNOwLEDGE_1" : "We all have a responsibility to protect the group's information - don't be an easy target! If you have any questions or need more information, please contact the IT security team.",
+            "_ACKNOwLEDGE_2" : "By clicking the button below, you agree that you have read this message.",
+            "_ACK_BUTTON" : "Acknowledge"
+        },
+
+        "fr" : {
+            "_TITLE_TAB" : "Oups ! Vous avez été phishé...",
+            "_CHOOSE_LANGUAGE" : "Choisissez votre langue :",
+            "_TITLE" : "FAITES ATTENTION AUX LIENS FRAUDULEUX !",
+            "_SUBTITLE" : "Ceci est un exercice de phishing réalisé par %COMPANY%, ne vous inquiétez pas. Soyez vigilants car cela aurait pu être un véritable phishing. Voici des astuces pour vous protéger contre le phishing :",
+            "_STEP_1" : "ETAPE\u00A01",
+            "_STEP_1_TITLE" : "Vérifiez ces éléments",
+            "_STEP_1_SUBTITLE_1" : "L'adresse de l'expéditeur",
+            "_STEP_1_CONTENT_1" : "Vérifiez si le nom de l'expéditeur correspond bien à son adresse e-mail, et méfiez vous si vous ne le connaissez pas.",
+            "_STEP_1_SUBTITLE_2" : "Le ton de l'e-mail",
+            "_STEP_1_CONTENT_2" : "Une action urgente vous est demandée ? Prenez le temps de lire l'entièreté de l'e-mail et de vous questionner sur sa légitimité.",
+            "_STEP_1_SUBTITLE_3" : "La signature",
+            "_STEP_1_CONTENT_3" : "Vérifiez si la signature vous semble légitime, un logo, un numéro de téléphone, une adresse... Et vérifiez ces données.",
+
+            "_STEP_2" : "ETAPE\u00A02",
+            "_STEP_2_TITLE" : "Faites attention aux détails",
+            "_STEP_2_INTRO" : "Voici l'e-mail que vous avez reçu. Survolez les bulles pour voir les détails auxquels vous auriez dû prêter attention.",
+
+            "_FROM" : "De : ",
+            "_SENDER" : "Loterie pour %COMPANY%",
+            "_SENDER_TOOLTIP" : "Domaine d'expédition très suspect.",
+            "_SUBJ" : "Objet : ",
+            "_SUBJECT" : "Participez au Tirage au Sort et Gagnez des Places Exclusives pour les Jeux Olympiques de Paris 2024",
+
+            "_STEP_3" : "ETAPE\u00A03",
+            "_STEP_3_TITLE_1" : "Signaler un e-mail qui ne vous semble pas légitime",
+            "_STEP_3_CONTENT_1" : "Signaler l'e-mail en cliquant sur le bouton 'Signaler un phishing'. Vous devriez voir le logo apparaître en haut à droite de l'adresse de l'expéditeur.",
+            "_STEP_3_TITLE_2" : "Pourquoi signaler",
+            "_STEP_3_LI_1" : "Avertir l'équipe sécurité qu'une potentielle attaque a lieu.",
+            "_STEP_3_LI_2" : "Vérifiez la légitimité de votre e-mail. Si celui-ci n'est pas un phishing, vous pourrez y répondre.",
+            "_STEP_3_LI_3" : "Protéger mon entreprise et mes collègues en avertissant au plus vite.",
+            
+            "_ACKNOwLEDGE_1" : "Nous avons tous la responsabilité de protéger les informations du groupe - ne soyez pas une cible facile ! Si vous avez des questions ou avez besoin de plus amples renseignements, veuillez communiquer avec l'équipe de sécurité informatique.",
+            "_ACKNOwLEDGE_2" : "En cliquant sur le bouton ci-dessous, vous confirmez avoir lu ce message.",
+            "_ACK_BUTTON" : "Confirmer"
+        }
+    };
+</script>
+
+<!-- GESTION DE LA TRADUCTION AUTO -->
+<script>
+    /// Il n'y a rien à modifier ici pour le contenu. La traduction est à ajouter dans la section IMPORT DE TRADUCTIONS
+
+    // Get the language selector dropdown element
+    const languageDropdown = document.getElementById('languageDropdown');
+
+    // Get the user's OS language
+    const userOSLanguage = navigator.language;
+
+    // Make an approx. of the OS language and special cases for Brazil and Hong Kong (other regional settings are stripped out)
+    var approxUserOSLanguage = "en";
+    if (userOSLanguage == "pt-BR") {    
+        approxUserOSLanguage = "pt-BR";
+    } else if (userOSLanguage == "zh-HK"){
+        approxUserOSLanguage = "zh-HK";
+    } 
+    else {
+        approxUserOSLanguage = userOSLanguage.split("-")[0];
+    };
+    console.log("Detected Browser language: " + userOSLanguage + ". Approx. language made:" + approxUserOSLanguage + "\n");
+
+    // Function to update the active translation based on the selected language
+    function updateTranslation() {
+        const selectedLanguage = languageDropdown.value;
+        // Get the dictionary for the requested language
+        const translation = translations[selectedLanguage];
+
+        // Change the direction of reading if needed
+        if (selectedLanguage=="ar" || selectedLanguage=="he"){
+            document.body.dir="rtl";
+        } else {
+            document.body.dir="ltr";
+        }
+
+        // Loop through all translation elements
+        const toBeTranslated = document.querySelectorAll('[key-translate]');
+        for (const element of toBeTranslated) {
+            // Change the text within the element when it is recognized in the JSON
+            try {
+                element.textContent = translation[element.getAttribute('key-translate')];
+            } catch(e) {
+                if (e instanceof TypeError) {
+                    console.log ("Erreur lors de la traduction. Traduction de " + element.getAttribute('key-translate') + " non disponible dans la langue sélectionnée ("+ selectedLanguage + "). \n");
+                    console.log ("Détails de l'erreur : "+ e.message + "\n");
+                } else {
+                    console.log("Erreur non traitée : " + e.message + "\n");
+                }
+            }
+        }
+    }
+
+    // Display the dropdown based on the dev input values ("var languages = ")
+    const dropdownOptions = languageDropdown.getElementsByTagName('option');
+    for (const option of dropdownOptions) {
+      if (languages.includes(option.value)) {
+        console.log("Translation is available for '" + option.value + "' and activated it in the dropdown. \n");
+        option.style.display = "block";
+      }
+    }
+
+    // Loop through the dropdown options and select the user's OS language if available + Makes a check if the translation is made available by the dev
+    for (const option of dropdownOptions) {
+      if (option.value === approxUserOSLanguage && languages.includes(approxUserOSLanguage)) {
+        option.selected = true;
+        console.log("Found the browser language ("+ userOSLanguage +") in dropdown and used: " + option.value +"\n");
+        break;
+      }
+      console.log("The browser language '"+userOSLanguage+"' ("+ approxUserOSLanguage +") has no translation available, therefore the default language will be used");
+    }
+
+    // Add event listener for language selection change
+    languageDropdown.addEventListener('change', updateTranslation);
+
+    // Update the translation initially
+    updateTranslation();
+  </script>
+  
+<!-- GESTION DES TOOLTIPS -->
+<script>
+    /*
+    Il n'y a rien à modifier dans le script pour le fonctionnement des tooltips. L'unique changement ici l'activation ou non du dimScreen (écran grisé semi-transparent sur la page lors du survol d'un tip).
+    Pour le visuel des tooltips / tips, il faut aller dans le css en haut sur la class tooltip / tip.
+    Pour le contenu, il faut l'intégrer au sein des balises dédiées à ajouter dans le code avec le paramètre data-tooltip.
+    */
+
+    const dimScreenOn = true; //Changer la valeur en false (resp. true) si on veut désactiver (resp. activer) l'effet dimScreen.
+
+    console.log("Changing content");
+    // Add tooltips to elements with the 'data-tooltip' attribute
+    const elementsWithTooltip = document.querySelectorAll('[data-tooltip]');
+    elementsWithTooltip.forEach(element => {
+        element.addEventListener('mouseenter', showTooltip);
+        element.addEventListener('mouseleave', hideTooltip);
+    });
+
+    function showTooltip(event) {
+        var tooltipText = event.target.getAttribute('data-tooltip');
+
+        // Handles the translation of tooltip if available
+        if (event.target.getAttribute('key-data-tooltip') != null) {
+            //Get the currentLanguage selected in the dropdown
+            currentLanguage = () => {
+                for (const option of dropdownOptions) {
+                    if (option.selected == true) {
+                        return option.value;
+                    }
+                }
+            }
+            var currentLanguage = currentLanguage();
+            //Changes the tooltipText with the matching text for the given tooltip
+            tooltipText = translations[currentLanguage][event.target.getAttribute('key-data-tooltip')]
+        };
+        const tooltip = createTooltip(tooltipText);
+        document.body.appendChild(tooltip);
+
+        const rect = event.target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+
+        const scrollTop = window.scrollY || window.pageYOffset; // Taking the page scrolling to correctly display the tooltips.
+
+        const top = rect.top + scrollTop - tooltipRect.height - 10;
+        const left = rect.left + (rect.width - tooltipRect.width) / 2;
+
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        if  (dimScreenOn) {
+            const dimScreen = document.querySelector('#dimScreen');
+            dimScreen.style.display = 'flex';
+        }
+    }
+
+    function hideTooltip(event) {
+        const tooltip = document.querySelector('.tooltip');
+        if (tooltip) {
+            document.body.removeChild(tooltip);
+        }
+
+        if  (dimScreenOn) {
+            const dimScreen = document.querySelector('#dimScreen');
+            dimScreen.style.display = 'none';
+        }
+    }
+
+    function createTooltip(text) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.innerText = text;
+        return tooltip;
+    }
+</script>
+  <script src="//tslp.s3.amazonaws.com/assets/js/training.js"></script>
+</html>
